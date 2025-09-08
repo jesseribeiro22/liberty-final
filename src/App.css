@@ -1,0 +1,20 @@
+/* src/App.css — utilitários usados no layout */
+
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  }
+
+  .card-border-red    { @apply border border-red-200; }
+  .card-border-yellow { @apply border border-yellow-200; }
+  .card-border-blue   { @apply border border-blue-200; }
+
+  .hover-lift         { @apply transition-transform duration-200 hover:-translate-y-1; }
+  .smooth-transition  { @apply transition-all duration-300; }
+
+  .whatsapp-button {
+    @apply fixed bottom-6 right-6 rounded-full px-4 py-3 text-white shadow-lg;
+    background: #22c55e;
+  }
+}
+
