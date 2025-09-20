@@ -1,6 +1,6 @@
 // Arquivo: src/components/ui/home/Header.jsx
 import React, { useEffect, useState } from "react";
-import logoLiberty from "@/assets/new_logo_liberty_horizontal.png"; // ajuste se o nome for outro
+import logoLiberty from "@/assets/logo_liberty_transparente1.png"; // ajuste se o nome for outro
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);

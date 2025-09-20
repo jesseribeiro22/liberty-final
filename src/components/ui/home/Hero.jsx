@@ -26,7 +26,8 @@ export default function Hero({
     // MUDANÇA 1: Adicionadas classes para altura mínima da tela e para centralizar o conteúdo.
     <section
       id="inicio"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-100"
+
       style={{
         backgroundImage: hasBgImg ? `url(${bgImageUrl})` : "none",
         backgroundSize: "cover",

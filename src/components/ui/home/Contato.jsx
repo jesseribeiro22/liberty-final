@@ -14,7 +14,6 @@ export default function Contato() {
   const [bgUrl, setBgUrl] = useState("");
   const formRef = useRef(null);
 
-  // << MUDANÇA 1: Estado para controlar o feedback do formulário >>
   const [formFeedback, setFormFeedback] = useState({ type: '', message: '' });
 
   useEffect(() => {
@@ -32,7 +31,6 @@ export default function Contato() {
     e.preventDefault();
     if (sending) return;
 
-    // Limpa o feedback anterior a cada novo envio
     setFormFeedback({ type: '', message: '' });
     setSending(true);
 
@@ -43,9 +41,9 @@ export default function Contato() {
     const cidade = fd.get("cidade")?.toString().trim();
     const mensagem = fd.get("mensagem")?.toString().trim();
 
-    if (!nome || !email || !cidade || !mensagem) {
-      // << MUDANÇA 2: Usa o estado de feedback em vez de alert() >>
-      setFormFeedback({ type: 'error', message: 'Por favor, preencha todos os campos obrigatórios.' });
+    // A validação foi alterada aqui
+    if (!nome || !email || !cidade) {
+      setFormFeedback({ type: 'error', message: 'Por favor, preencha nome, e-mail e cidade.' });
       setSending(false);
       return;
     }
@@ -57,10 +55,8 @@ export default function Contato() {
 
       if (error) {
         console.error("Erro ao criar lead:", error);
-        // << MUDANÇA 3: Usa o estado de feedback para erros >>
         setFormFeedback({ type: 'error', message: 'Não foi possível enviar seu contato. Tente novamente.' });
       } else {
-        // << MUDANÇA 4: Usa o estado de feedback para sucesso >>
         setFormFeedback({ type: 'success', message: 'Recebemos seu contato! Em breve retornaremos.' });
         if (formRef.current) {
           formRef.current.reset();
@@ -71,7 +67,6 @@ export default function Contato() {
       setFormFeedback({ type: 'error', message: 'Ocorreu um erro inesperado. Tente mais tarde.' });
     } finally {
       setSending(false);
-      // Limpa a mensagem após 5 segundos
       setTimeout(() => setFormFeedback({ type: '', message: '' }), 5000);
     }
   }
@@ -116,7 +111,6 @@ export default function Contato() {
                   {sending ? "Enviando..." : "Enviar"}
                 </Button>
                 
-                {/* << MUDANÇA 5: Elemento de feedback visual >> */}
                 {formFeedback.message && (
                   <p className={`mt-4 text-center font-semibold p-3 rounded-md ${
                     formFeedback.type === 'success'
