@@ -1,6 +1,6 @@
 // src/components/ui/home/Footer.jsx (Versão com Links Acessíveis)
 import React from "react";
-import logoLiberty from "@/assets/logo_liberty.jpg";
+import logoLiberty from "@/assets/logo_liberty_transparente1.png";
 import { MessageCircle, Phone } from "lucide-react";
 
 export default function Footer() {
