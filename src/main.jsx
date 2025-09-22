@@ -16,8 +16,11 @@ import AdminClients from './pages/AdminClients.jsx';       // Clientes
 import AdminAppointments from './pages/AdminAppointments.jsx'; // Agendamentos
 import AdminConfig from './pages/AdminConfig.jsx';         // << NOVO: Configurações
 
-// Linha adicionada para verificação
-console.log('ENV_CHECK', !!import.meta.env.VITE_SUPABASE_URL, !!import.meta.env.VITE_SUPABASE_ANON_KEY);
+// Linha de verificação formatada
+console.log('ENV_CHECK',
+  !!import.meta.env.VITE_SUPABASE_URL,
+  !!import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 const router = createBrowserRouter([
   { path: '/', element: <HomePage /> },
