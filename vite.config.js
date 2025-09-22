@@ -7,11 +7,16 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(), // <- ativa o pipeline do Tailwind no Vite (v4)
+    tailwindcss(), // <- Mantido para o Tailwind funcionar
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@': fileURLToPath(new URL('./src', import.meta.url)), // <- Mantido para os imports com @
     },
   },
+  // Novas configurações adicionadas
+  build: {
+    outDir: 'dist'
+  },
+  base: './'
 })
